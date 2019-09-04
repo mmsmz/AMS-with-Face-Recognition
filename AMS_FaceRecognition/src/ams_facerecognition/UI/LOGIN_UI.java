@@ -1,5 +1,4 @@
 package ams_facerecognition.UI;
-
 import ams_facerecognition.Attendance;
 import ams_facerecognition.DB_Connection;
 import ams_facerecognition.Newusers;
@@ -204,8 +203,8 @@ public class LOGIN_UI extends javax.swing.JFrame {
 	         JOptionPane.showMessageDialog(null, "Access Permitted");
                  EmployeeLOG emplog= new EmployeeLOG(username);
                         // time out 
-                        try { 
-        String sql2 ="SELECT  emp_id, name, gender, nicNo, homeAddress, contactNo, emailId, qualification, join_date, department from employee where emailId = '"+username+"'"; 
+        try { 
+        String sql2 ="SELECT  emp_id, name, gender, nicNo, homeAddress, contactNo, emailId, qualification, join_date, Department_Name from employee INNER JOIN department on employee.department_id = department.Dept_id where emailId = '"+username+"'"; 
         pst=conn.prepareStatement(sql2); 
         rs=pst.executeQuery();
 

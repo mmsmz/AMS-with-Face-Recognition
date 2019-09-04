@@ -65,12 +65,13 @@ public class EmployeeLOG extends javax.swing.JFrame {
  private void distable() { 
     
         try { 
-        String sql ="SELECT  emp_id, name, gender, nicNo, homeAddress, contactNo, emailId, qualification, join_date, department from employee where emailId = '"+email_ID+"'"; 
+        String sql ="SELECT  emp_id, emptype, name, gender, nicNo, homeAddress, contactNo, emailId, qualification, join_date, Department_Name  from employee INNER JOIN department on employee.department_id = department.Dept_id where emailId = '"+email_ID+"'"; 
         pst=conn.prepareStatement(sql); 
         rs=pst.executeQuery();
-
+        
         if(rs.next()) { 
              txtemp_id.setText(rs.getString("emp_id"));
+             txtemp_desingation.setText(rs.getString("emptype"));
              txtempname.setText(rs.getString("name"));
              txttgender.setText(rs.getString("gender"));
              txtnicno.setText(rs.getString("nicNo"));
@@ -79,7 +80,7 @@ public class EmployeeLOG extends javax.swing.JFrame {
              txtemailid.setText(rs.getString("emailId"));
              txtqualification.setText(rs.getString("qualification"));
              txtdateof_join.setText(rs.getString("join_date"));
-             txtdepartment.setText(rs.getString("department"));
+             txtdepartment.setText(rs.getString("Department_Name"));
       
              /*String empId = rs.getString("emp_id");
         txtemp_id.setText(empId);
@@ -130,6 +131,8 @@ public class EmployeeLOG extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         lbl_emailid = new javax.swing.JLabel();
         btn_logout = new javax.swing.JButton();
+        txtemp_desingation = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -145,7 +148,7 @@ public class EmployeeLOG extends javax.swing.JFrame {
                 btn_payslipActionPerformed(evt);
             }
         });
-        jPanel1.add(btn_payslip, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 30, 114, 55));
+        jPanel1.add(btn_payslip, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 30, 114, 30));
 
         btn_CheckIn.setText("CheckIn");
         btn_CheckIn.addActionListener(new java.awt.event.ActionListener() {
@@ -153,7 +156,7 @@ public class EmployeeLOG extends javax.swing.JFrame {
                 btn_CheckInActionPerformed(evt);
             }
         });
-        jPanel1.add(btn_CheckIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 30, 114, 55));
+        jPanel1.add(btn_CheckIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 30, 114, 30));
 
         txtdepartment.setEditable(false);
         txtdepartment.addActionListener(new java.awt.event.ActionListener() {
@@ -242,8 +245,8 @@ public class EmployeeLOG extends javax.swing.JFrame {
         jPanel1.add(txtemp_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 140, 190, 35));
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel1.setText("Employee ID :");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, -1, -1));
+        jLabel1.setText("Desgnation : ");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, -1, -1));
 
         jLabel11.setBackground(new java.awt.Color(204, 51, 0));
         jLabel11.setFont(new java.awt.Font("Stencil", 0, 24)); // NOI18N
@@ -259,7 +262,14 @@ public class EmployeeLOG extends javax.swing.JFrame {
                 btn_logoutActionPerformed(evt);
             }
         });
-        jPanel1.add(btn_logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 30, 80, 60));
+        jPanel1.add(btn_logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 30, 80, 30));
+
+        txtemp_desingation.setEditable(false);
+        jPanel1.add(txtemp_desingation, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 90, 190, 35));
+
+        jLabel12.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel12.setText("Employee ID :");
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 750, 440));
 
@@ -270,12 +280,14 @@ public class EmployeeLOG extends javax.swing.JFrame {
     private void btn_CheckInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CheckInActionPerformed
            EmployeeCheckIN emp_Check_user_checkin =new EmployeeCheckIN ();
            emp_Check_user_checkin.setVisible(true);
-           this.dispose();
+        //   this.dispose();
     }//GEN-LAST:event_btn_CheckInActionPerformed
 
     private void btn_payslipActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_payslipActionPerformed
-               EmployeePayment ep = new EmployeePayment();
-               ep.show();
+               
+               
+               EmployeePayment ep =new EmployeePayment();
+               ep.setVisible(true);
     }//GEN-LAST:event_btn_payslipActionPerformed
 
     private void txtqualificationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtqualificationActionPerformed
@@ -313,7 +325,7 @@ public class EmployeeLOG extends javax.swing.JFrame {
 	        admin.setVisible(true);
              
              // logooout 
-
+                this.dispose();
                
                
     }//GEN-LAST:event_btn_logoutActionPerformed
@@ -360,6 +372,7 @@ public class EmployeeLOG extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -375,6 +388,7 @@ public class EmployeeLOG extends javax.swing.JFrame {
     private javax.swing.JTextField txtdateof_join;
     private javax.swing.JTextField txtdepartment;
     private javax.swing.JTextField txtemailid;
+    private javax.swing.JTextField txtemp_desingation;
     private javax.swing.JTextField txtemp_id;
     private javax.swing.JTextField txtempname;
     private javax.swing.JTextField txthomeaddress;

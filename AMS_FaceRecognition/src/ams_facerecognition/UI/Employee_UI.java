@@ -352,7 +352,7 @@ public class Employee_UI extends javax.swing.JFrame {
             ex.printStackTrace();
         }
         jPanel1.add(txtcontactNr, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 320, 300, 50));
-        jPanel1.add(tttt, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 30, 70, 50));
+        jPanel1.add(tttt, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 30, 50, 30));
 
         enst.setBackground(new java.awt.Color(204, 51, 0));
         enst.setFont(new java.awt.Font("Stencil", 0, 24)); // NOI18N
@@ -445,8 +445,8 @@ public class Employee_UI extends javax.swing.JFrame {
                   // SimpleDateFormat df = new SimpleDateFormat("MM-dd-yyyy");               
                  //  String tranDate = df.format(join_date.getDate());
                   // java.util.Date regDate = java.util.Date.valueOf(tranDate);
-    
-                    obj.setDepartment(txtDepartment.getSelectedItem().toString());
+    //4.9
+                    obj.setDepartment(Integer.parseInt(txtDepartment.getSelectedItem().toString()));
                     obj.addemployee(obj);
 
                     JOptionPane.showMessageDialog(this, "Successfully Employee Registered", "Success", JOptionPane.INFORMATION_MESSAGE);

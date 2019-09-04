@@ -162,8 +162,8 @@ public class EmployeeCheckIN extends javax.swing.JFrame {
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-            
-            this.hide();
+            this.dispose();
+                
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
