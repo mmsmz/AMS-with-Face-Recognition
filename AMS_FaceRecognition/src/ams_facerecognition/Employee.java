@@ -28,10 +28,8 @@ public class Employee {
    private String emailId;
    private String qualification;
    private Date join_date;
-   private String department;
+   private int department;
  
-   
-   
      /**
      * @return the emp_ID
      */
@@ -144,20 +142,7 @@ public class Employee {
     }
 
    
-    /**
-     * @return the department
-     */
-    public String getDepartment() {
-        return department;
-    }
-
-    /**
-     * @param department the department to set
-     */
-    public void setDepartment(String department) {
-        this.department = department;
-    }
-   
+  
    
    //String date = datepicker.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
    
@@ -190,6 +175,19 @@ public class Employee {
         this.emptype = emptype;
     }
     
+    /**
+     * @return the department
+     */
+    public int getDepartment() {
+        return department;
+    }
+
+    /**
+     * @param department the department to set
+     */
+    public void setDepartment(int department) {
+        this.department = department;
+    }
        
     public void addemployee(Employee obj) throws Exception
     {
@@ -200,11 +198,12 @@ public class Employee {
     
           
         String SQL ="insert into Employee ( name, gender, nicNo, homeAddress, contactNo, emailId, qualification, join_date, department) values('"+obj.name  +"','"+obj.gender+"',"
-                + "'"+obj.nicNo+"','"+obj.homeAddress+"','"+obj.contactNo+"','"+obj.emailId+"','"+obj.qualification+"','"+sdf.format(obj.join_date)+"','"+obj.department+"')";
+                + "'"+obj.nicNo+"','"+obj.homeAddress+"','"+obj.contactNo+"','"+obj.emailId+"','"+obj.qualification+"','"+sdf.format(obj.join_date)+"','"+obj.getDepartment()+"')";
         DB_Connection objcon=new DB_Connection();
         System.out.println(" "+SQL);
         objcon.addvalue(SQL);
     }
+
 
 
 

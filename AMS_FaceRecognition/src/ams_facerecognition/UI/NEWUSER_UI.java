@@ -282,7 +282,7 @@ public class NEWUSER_UI extends javax.swing.JFrame {
         });
         getContentPane().add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 220, 70, 40));
 
-        jPanel1.setBackground(new java.awt.Color(204, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btndelete.setBackground(new java.awt.Color(236, 47, 0));
