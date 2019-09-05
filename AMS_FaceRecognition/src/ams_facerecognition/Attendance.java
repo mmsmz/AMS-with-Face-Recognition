@@ -133,14 +133,14 @@ public class Attendance {
     {
        // startup();
      try {
-       String sql = "SELECT * from attendance where date_today = CURDATE()";
+       String sql = "SELECT * from attendance where emp_id='"+obj.getEmp_id()+"' and date_today = CURDATE()";
         pst=conn.prepareStatement(sql); 
         rs=pst.executeQuery();
 //       rs = pst.executeQuery(sql);
       
       if(!rs.next()){
          //Retrieve by column name
-        String SQL ="insert into attendance ( emp_id, date_today, time_in, time_out, hours_worked) values('"+obj.getEmp_id()  +"',CURDATE(),CURRENT_TIME(),CURRENT_TIME(),0)";
+        String SQL ="insert into attendance ( emp_id, date_today, time_in, time_out, hours_worked) values('"+obj.getEmp_id()+"',CURDATE(),CURRENT_TIME(),CURRENT_TIME(),0)";
         DB_Connection objcon=new DB_Connection();
         System.out.println(" "+SQL);
         objcon.addvalue(SQL);
@@ -148,13 +148,12 @@ public class Attendance {
       rs.close();
       }catch(Exception e){
        JOptionPane.showMessageDialog(null, e); 
-       }
+      }
     }
     
     
     public void addlogout(Attendance obj) throws Exception
     {
-      
      try {
         String SQL ="UPDATE attendance SET time_out = CURRENT_TIME(), hours_worked =ROUND(TIME_TO_SEC(TIMEDIFF(time_out, time_in))/(60*60)) where emp_id='"+obj.getEmp_id()+"' AND date_today = CURDATE()";
         DB_Connection objcon=new DB_Connection();

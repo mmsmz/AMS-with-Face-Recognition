@@ -23,14 +23,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.text.DateFormat;
-
 import javax.swing.ButtonGroup;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import net.proteanit.sql.DbUtils;
-
-
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -45,6 +42,8 @@ public class EmployeeCheckIN extends javax.swing.JFrame {
     /**
      * Creates new form Students_UI
      */
+     
+     
     public EmployeeCheckIN() {
         
           try
@@ -57,20 +56,26 @@ public class EmployeeCheckIN extends javax.swing.JFrame {
              
                 JOptionPane.showMessageDialog(null, "Can't Open Connection!! " + ex.getMessage());
             }
-        initComponents();
+//      MysqlxCrud.DataModel.TABLE = User;
+
+     initComponents();
+        //lbl_empid.setText(User);     
+        
         distable();
+        //lbl_empid.hide();
     }
-
-
     
-    private void distable() { 
     
+    
+    private void distable() {  
+        
         try { 
-        String sql ="SELECT * from Attendance"; 
+        
+        String sql ="SELECT emp_id, date_today, time_in, time_out, hours_worked from Attendance ORDER BY date_today Desc"; 
         pst=conn.prepareStatement(sql); 
         rs=pst.executeQuery();
         jTable1.setModel(DbUtils.resultSetToTableModel(rs)); 
-
+        
         }
         catch (Exception e) { 
         JOptionPane.showMessageDialog(null, e); 
@@ -88,12 +93,17 @@ public class EmployeeCheckIN extends javax.swing.JFrame {
     private void initComponents() {
 
         enst = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel15 = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        lbl_empid = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         getContentPane().setLayout(null);
 
         enst.setBackground(new java.awt.Color(204, 51, 0));
@@ -102,6 +112,30 @@ public class EmployeeCheckIN extends javax.swing.JFrame {
         getContentPane().add(enst);
         enst.setBounds(20, 30, 120, 30);
         enst.getAccessibleContext().setAccessibleName("Register Employee");
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel3.setBackground(new java.awt.Color(0, 102, 204));
+        jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        jLabel15.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel15.setText("X");
+        jLabel15.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel15MouseClicked(evt);
+            }
+        });
+        jPanel3.add(jLabel15);
+
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(712, 0, 40, 30));
+
+        jPanel4.setBackground(new java.awt.Color(0, 102, 204));
+        jPanel4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 0, 10, 490));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -122,24 +156,20 @@ public class EmployeeCheckIN extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTable1);
 
-        getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(20, 72, 720, 440);
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 720, 400));
 
-        jPanel1.setBackground(new java.awt.Color(204, 255, 255));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel2.setBackground(new java.awt.Color(0, 102, 204));
+        jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 480, 750, -1));
 
-        jButton1.setText("Close");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 30, -1, -1));
+        lbl_empid.setText("empid");
+        lbl_empid.setOpaque(true);
+        jPanel1.add(lbl_empid, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 10, 50, 30));
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 760, 540);
+        jPanel1.setBounds(0, 0, 750, 550);
 
-        setSize(new java.awt.Dimension(777, 574));
+        setSize(new java.awt.Dimension(750, 488));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -161,10 +191,10 @@ public class EmployeeCheckIN extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jTable1MouseClicked
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-            this.dispose();
-                
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void jLabel15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel15MouseClicked
+
+        this.dispose();
+    }//GEN-LAST:event_jLabel15MouseClicked
 
     /**
      * @param args the command line arguments
@@ -234,9 +264,13 @@ public class EmployeeCheckIN extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel enst;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JLabel lbl_empid;
     // End of variables declaration//GEN-END:variables
 }

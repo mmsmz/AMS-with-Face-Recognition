@@ -51,19 +51,18 @@ public class EmployeeLOG extends javax.swing.JFrame {
              
                 JOptionPane.showMessageDialog(null, "Can't Open Connection!! " + ex.getMessage());
             }
-        
+         
         this.email_ID = User;
-
-     initComponents();
-        lbl_emailid.setText(User);     
+        initComponents();
         
+        lbl_emailid.setText(User);     
         distable();
+        
         lbl_emailid.hide();
     }
     
     
  private void distable() { 
-    
         try { 
         String sql ="SELECT  emp_id, emptype, name, gender, nicNo, homeAddress, contactNo, emailId, qualification, join_date, Department_Name  from employee INNER JOIN department on employee.department_id = department.Dept_id where emailId = '"+email_ID+"'"; 
         pst=conn.prepareStatement(sql); 
@@ -115,165 +114,263 @@ public class EmployeeLOG extends javax.swing.JFrame {
         txtdateof_join = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         txtnicno = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         txttgender = new javax.swing.JTextField();
         txtqualification = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         txtemailid = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         txtempname = new javax.swing.JTextField();
-        jLabel10 = new javax.swing.JLabel();
         txtcontactno = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         txtemp_id = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        lbl_emailid = new javax.swing.JLabel();
-        btn_logout = new javax.swing.JButton();
         txtemp_desingation = new javax.swing.JTextField();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel13 = new javax.swing.JLabel();
+        lbl_emailid = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel15 = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
+        jPanel6 = new javax.swing.JPanel();
+        jPanel8 = new javax.swing.JPanel();
+        jPanel7 = new javax.swing.JPanel();
+        jPanel9 = new javax.swing.JPanel();
 
         jMenuItem1.setText("jMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(204, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        btn_payslip.setBackground(new java.awt.Color(0, 204, 204));
         btn_payslip.setText("Payment ");
+        btn_payslip.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btn_payslip.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_payslipActionPerformed(evt);
             }
         });
-        jPanel1.add(btn_payslip, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 30, 114, 30));
+        jPanel1.add(btn_payslip, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 10, 114, 30));
 
+        btn_CheckIn.setBackground(new java.awt.Color(0, 204, 204));
         btn_CheckIn.setText("CheckIn");
+        btn_CheckIn.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btn_CheckIn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_CheckInActionPerformed(evt);
             }
         });
-        jPanel1.add(btn_CheckIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 30, 114, 30));
+        jPanel1.add(btn_CheckIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 10, 114, 30));
 
         txtdepartment.setEditable(false);
+        txtdepartment.setBackground(new java.awt.Color(255, 255, 255));
+        txtdepartment.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        txtdepartment.setBorder(null);
         txtdepartment.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtdepartmentActionPerformed(evt);
             }
         });
-        jPanel1.add(txtdepartment, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 380, 190, 35));
+        jPanel1.add(txtdepartment, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 330, 190, 35));
 
-        jLabel8.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Department :");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 390, -1, -1));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 340, -1, -1));
 
         txthomeaddress.setEditable(false);
-        jPanel1.add(txthomeaddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 380, 190, 35));
+        txthomeaddress.setBackground(new java.awt.Color(255, 255, 255));
+        txthomeaddress.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        txthomeaddress.setBorder(null);
+        jPanel1.add(txthomeaddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 380, 180, 35));
 
-        jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Home Address :");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 390, -1, -1));
 
         txtdateof_join.setEditable(false);
+        txtdateof_join.setBackground(new java.awt.Color(255, 255, 255));
+        txtdateof_join.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        txtdateof_join.setBorder(null);
         txtdateof_join.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtdateof_joinActionPerformed(evt);
             }
         });
-        jPanel1.add(txtdateof_join, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 320, 190, 35));
+        jPanel1.add(txtdateof_join, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 270, 190, 35));
 
-        jLabel9.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Date of Join : ");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 330, -1, -1));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 280, -1, -1));
 
         txtnicno.setEditable(false);
-        jPanel1.add(txtnicno, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 320, 190, 35));
-
-        jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel3.setText("NIC NR. :");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 330, -1, -1));
-
-        jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel2.setText("Sex :");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 270, -1, -1));
+        txtnicno.setBackground(new java.awt.Color(255, 255, 255));
+        txtnicno.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        txtnicno.setBorder(null);
+        jPanel1.add(txtnicno, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 320, 180, 35));
 
         txttgender.setEditable(false);
+        txttgender.setBackground(new java.awt.Color(255, 255, 255));
+        txttgender.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        txttgender.setBorder(null);
         txttgender.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txttgenderActionPerformed(evt);
             }
         });
-        jPanel1.add(txttgender, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 260, 190, 35));
+        jPanel1.add(txttgender, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 260, 180, 35));
 
         txtqualification.setEditable(false);
+        txtqualification.setBackground(new java.awt.Color(255, 255, 255));
+        txtqualification.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        txtqualification.setBorder(null);
         txtqualification.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtqualificationActionPerformed(evt);
             }
         });
-        jPanel1.add(txtqualification, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 260, 190, 35));
+        jPanel1.add(txtqualification, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 210, 190, 35));
 
-        jLabel7.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Qualification :");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 270, -1, -1));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 220, -1, -1));
 
         txtemailid.setEditable(false);
-        jPanel1.add(txtemailid, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 200, 190, 35));
+        txtemailid.setBackground(new java.awt.Color(255, 255, 255));
+        txtemailid.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        txtemailid.setBorder(null);
+        jPanel1.add(txtemailid, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 150, 190, 35));
 
-        jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Email ID :");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 210, -1, -1));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 160, -1, -1));
 
         txtempname.setEditable(false);
-        jPanel1.add(txtempname, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 200, 190, 35));
-
-        jLabel10.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel10.setText("Employee Name :");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, -1, -1));
+        txtempname.setBackground(new java.awt.Color(255, 255, 255));
+        txtempname.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        txtempname.setBorder(null);
+        jPanel1.add(txtempname, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 200, 180, 35));
 
         txtcontactno.setEditable(false);
-        jPanel1.add(txtcontactno, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 140, 190, 35));
+        txtcontactno.setBackground(new java.awt.Color(255, 255, 255));
+        txtcontactno.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        txtcontactno.setBorder(null);
+        jPanel1.add(txtcontactno, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 90, 190, 35));
 
-        jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Contact No :");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 150, -1, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 100, -1, -1));
 
         txtemp_id.setEditable(false);
-        jPanel1.add(txtemp_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 140, 190, 35));
-
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel1.setText("Desgnation : ");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, -1, -1));
-
-        jLabel11.setBackground(new java.awt.Color(204, 51, 0));
-        jLabel11.setFont(new java.awt.Font("Stencil", 0, 24)); // NOI18N
-        jLabel11.setText("PrOFILE ABOUT ME: ");
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, -1));
-
-        lbl_emailid.setText("user_name");
-        jPanel1.add(lbl_emailid, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 50, 70, 35));
-
-        btn_logout.setText("Logout");
-        btn_logout.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_logoutActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btn_logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 30, 80, 30));
+        txtemp_id.setBackground(new java.awt.Color(255, 255, 255));
+        txtemp_id.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        txtemp_id.setBorder(null);
+        jPanel1.add(txtemp_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 90, 180, 35));
 
         txtemp_desingation.setEditable(false);
-        jPanel1.add(txtemp_desingation, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 90, 190, 35));
+        txtemp_desingation.setBackground(new java.awt.Color(255, 255, 255));
+        txtemp_desingation.setFont(new java.awt.Font("NSimSun", 0, 14)); // NOI18N
+        txtemp_desingation.setBorder(null);
+        jPanel1.add(txtemp_desingation, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 150, 180, 35));
 
-        jLabel12.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jPanel2.setBackground(new java.awt.Color(0, 102, 204));
+        jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel13.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel13.setText("<html>My Profile</html>");
+        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 130, 40));
+
+        lbl_emailid.setText("user_name");
+        jPanel2.add(lbl_emailid, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, 70, 35));
+
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Desgnation : ");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, -1, -1));
+
+        jLabel10.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("Employee Name :");
+        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 207, -1, 20));
+
+        jLabel12.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Employee ID :");
-        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, -1, -1));
+        jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, -1, -1));
+
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Sex :");
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 270, 40, -1));
+
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("NIC NR. :");
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 330, -1, -1));
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 150, 440));
+
+        jPanel3.setBackground(new java.awt.Color(0, 102, 204));
+        jPanel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        jLabel15.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel15.setText("X");
+        jLabel15.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel15MouseClicked(evt);
+            }
+        });
+        jPanel3.add(jLabel15);
+
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(712, 0, 40, -1));
+
+        jPanel4.setBackground(new java.awt.Color(0, 102, 204));
+        jPanel4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 0, 10, 440));
+
+        jPanel5.setBackground(new java.awt.Color(0, 102, 204));
+        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 90, 100, 30));
+
+        jPanel6.setBackground(new java.awt.Color(0, 102, 204));
+        jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 150, 100, 30));
+
+        jPanel8.setBackground(new java.awt.Color(0, 102, 204));
+        jPanel8.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel1.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 270, 100, 30));
+
+        jPanel7.setBackground(new java.awt.Color(0, 102, 204));
+        jPanel7.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 210, 100, 30));
+
+        jPanel9.setBackground(new java.awt.Color(0, 102, 204));
+        jPanel9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel1.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 330, 100, 30));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 750, 440));
 
-        setSize(new java.awt.Dimension(766, 478));
+        setSize(new java.awt.Dimension(750, 439));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -284,7 +381,6 @@ public class EmployeeLOG extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_CheckInActionPerformed
 
     private void btn_payslipActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_payslipActionPerformed
-               
                
                EmployeePayment ep =new EmployeePayment();
                ep.setVisible(true);
@@ -306,8 +402,8 @@ public class EmployeeLOG extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtdateof_joinActionPerformed
 
-    private void btn_logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_logoutActionPerformed
-            
+    private void jLabel15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel15MouseClicked
+                        
             
         
         Attendance atcheck = new Attendance();
@@ -321,14 +417,13 @@ public class EmployeeLOG extends javax.swing.JFrame {
          }
              
               JOptionPane.showMessageDialog(null, "Log out success");
+              this.dispose();
                 LOGIN_UI admin = new LOGIN_UI();
 	        admin.setVisible(true);
              
              // logooout 
-                this.dispose();
-               
-               
-    }//GEN-LAST:event_btn_logoutActionPerformed
+                
+    }//GEN-LAST:event_jLabel15MouseClicked
 
     /**
      * @param args the command line arguments
@@ -367,12 +462,12 @@ public class EmployeeLOG extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_CheckIn;
-    private javax.swing.JButton btn_logout;
     private javax.swing.JButton btn_payslip;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -383,6 +478,14 @@ public class EmployeeLOG extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JLabel lbl_emailid;
     private javax.swing.JTextField txtcontactno;
     private javax.swing.JTextField txtdateof_join;

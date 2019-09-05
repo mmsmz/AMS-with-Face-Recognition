@@ -30,8 +30,6 @@ public class Employee {
    private Date join_date;
    private int department;
  
-   
-   
      /**
      * @return the emp_ID
      */

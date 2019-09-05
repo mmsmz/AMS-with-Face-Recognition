@@ -13,6 +13,7 @@ import java.sql.ResultSet;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import org.omg.CORBA.Environment;
 import sun.security.util.Password;
 
 /**
@@ -54,8 +55,6 @@ public class LOGIN_UI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         txtusername = new javax.swing.JTextField();
@@ -63,29 +62,27 @@ public class LOGIN_UI extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         btnlogin = new javax.swing.JButton();
         btncancel = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setIconImages(null);
+        setUndecorated(true);
         setPreferredSize(new java.awt.Dimension(460, 540));
         setSize(new java.awt.Dimension(600, 800));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(203, 186, 225));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel1.setText("ATTENDANCE MANAGEMENT SYSTEM USING FACE RECOGNITION");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
-
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 420, 50));
-
-        jPanel2.setBackground(new java.awt.Color(204, 255, 255));
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setBorder(javax.swing.BorderFactory.createCompoundBorder());
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel3.setText("User Name  :");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 120, 40));
+        jLabel3.setFont(new java.awt.Font("Lucida Fax", 1, 14)); // NOI18N
+        jLabel3.setText("User Name :");
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 60, 110, 20));
 
         txtusername.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtusername.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(15, 150, 150)));
@@ -97,7 +94,7 @@ public class LOGIN_UI extends javax.swing.JFrame {
                 txtusernameFocusLost(evt);
             }
         });
-        jPanel2.add(txtusername, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 40, 220, 40));
+        jPanel2.add(txtusername, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 90, 220, 30));
 
         txtpassword.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtpassword.setToolTipText("");
@@ -110,27 +107,67 @@ public class LOGIN_UI extends javax.swing.JFrame {
                 txtpasswordFocusLost(evt);
             }
         });
-        jPanel2.add(txtpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 90, 220, 40));
+        jPanel2.add(txtpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 170, 220, 30));
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Lucida Fax", 1, 14)); // NOI18N
         jLabel2.setText("Password  :");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 100, 40));
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 130, 120, 40));
 
+        btnlogin.setBackground(new java.awt.Color(204, 0, 153));
+        btnlogin.setForeground(new java.awt.Color(255, 255, 255));
         btnlogin.setText("LOGIN");
+        btnlogin.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnlogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnlogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnloginActionPerformed(evt);
             }
         });
-        jPanel2.add(btnlogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 150, 220, 40));
+        jPanel2.add(btnlogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 240, 220, 30));
 
+        btncancel.setBackground(new java.awt.Color(204, 102, 0));
+        btncancel.setForeground(new java.awt.Color(255, 255, 255));
         btncancel.setText("CANCEL");
-        jPanel2.add(btncancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 200, 220, 40));
+        btncancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btncancelActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btncancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 280, 220, 30));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 420, 270));
+        jPanel1.setBackground(new java.awt.Color(0, 102, 204));
+        jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        setSize(new java.awt.Dimension(434, 356));
+        jLabel1.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("<html>ATTENDANCE MANAGEMENT SYSTEM With FACE RECOGNITION </html>");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 150, 90));
+
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ams_facerecognition/UI/user.png"))); // NOI18N
+        jLabel5.setText("jLabel5");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 130, 150));
+
+        jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 190, 350));
+
+        jPanel3.setBackground(new java.awt.Color(0, 102, 204));
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("X");
+        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel4MouseClicked(evt);
+            }
+        });
+        jPanel3.add(jLabel4);
+
+        jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 0, 40, -1));
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 480, 350));
+
+        setSize(new java.awt.Dimension(473, 344));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -204,7 +241,8 @@ public class LOGIN_UI extends javax.swing.JFrame {
                  EmployeeLOG emplog= new EmployeeLOG(username);
                         // time out 
         try { 
-        String sql2 ="SELECT  emp_id, name, gender, nicNo, homeAddress, contactNo, emailId, qualification, join_date, Department_Name from employee INNER JOIN department on employee.department_id = department.Dept_id where emailId = '"+username+"'"; 
+            
+        String sql2 ="SELECT  emp_ID, name, gender, nicNo, homeAddress, contactNo, emailId, qualification, join_date, Department_Name from employee INNER JOIN department on employee.department_id = department.Dept_id where emailId = '"+username+"'"; 
         pst=conn.prepareStatement(sql2); 
         rs=pst.executeQuery();
 
@@ -212,6 +250,7 @@ public class LOGIN_UI extends javax.swing.JFrame {
             Attendance atcheck = new Attendance();
             atcheck.setEmp_id(Integer.parseInt(rs.getString("emp_id")));
             atcheck.addattendance(atcheck);
+            this.dispose();
          }
         }
         catch (Exception e) { 
@@ -233,6 +272,14 @@ public class LOGIN_UI extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_btnloginActionPerformed
+
+    private void btncancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncancelActionPerformed
+                System.exit(0);
+    }//GEN-LAST:event_btncancelActionPerformed
+
+    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
+                System.exit(0);
+    }//GEN-LAST:event_jLabel4MouseClicked
 
     /**
      * @param args the command line arguments
@@ -276,8 +323,11 @@ public class LOGIN_UI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JPasswordField txtpassword;
     private javax.swing.JTextField txtusername;
     // End of variables declaration//GEN-END:variables
